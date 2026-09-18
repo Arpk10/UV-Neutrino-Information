@@ -4,34 +4,32 @@ Reproducibility repository for:
 
 **P. Kar, B. S. Koranga, and V. Nautiyal, “Ultraviolet flavor information in T-violating neutrino oscillations: seesaw matching, sterile mixing, and Planck-suppressed corrections.”**
 
-This repository contains the JPhys G submission source, the seven manuscript figures, and Python scripts used to reconstruct the plotted benchmark results from the numerical values and benchmark descriptions stated in the manuscript.
+This repository contains the JPhys G submission materials, figure-generation code, benchmark data, and a transparent reference implementation of the neutrino-oscillation calculations described in the manuscript.
 
 ## Contents
 
-- `paper.tex` — manuscript source.
-- `jphysg_revision.pdf` — compiled manuscript.
-- `figs/` — figures 1–7 used in the manuscript.
-- `scripts/` — figure-generation scripts.
+- `paper.tex` — manuscript source (submission working copy).
+- `figs/` — manuscript figures and generated reproductions.
+- `scripts/` — deterministic figure-generation scripts.
 - `data/` — machine-readable benchmark/plot data.
-- `src/` — compact neutrino-oscillation utilities implementing the equations used in the manuscript.
+- `src/` — compact neutrino-oscillation utilities.
+- `requirements.txt` — Python dependencies.
+- `.github/workflows/reproduce.yml` — GitHub Actions workflow that regenerates the figures.
 
 ## Reproduction
 
-Python 3.10+ is recommended. Install dependencies with:
+Python 3.10+ is recommended.
 
 ```bash
 pip install -r requirements.txt
-```
-
-Then run:
-
-```bash
 python scripts/reproduce_all.py
 ```
 
 The generated figures are written to `figs/generated/`.
 
-The plotting scripts are deliberately deterministic. The current repository reconstructs the published figure panels from the benchmark values and curves documented in the manuscript. It does **not** claim bit-for-bit identity with an unreleased original numerical implementation; where the manuscript gives only a plotted curve or benchmark range rather than the underlying array, the repository stores the corresponding reconstruction explicitly in `data/`.
+A GitHub Actions workflow also regenerates the figures automatically on pushes to `main` and can be run manually from the Actions tab.
+
+The plotting scripts are deliberately deterministic. The current repository reconstructs the published figure panels from the benchmark values and curves documented in the manuscript. It does **not** claim bit-for-bit identity with an unreleased original numerical implementation; where the manuscript gives only a plotted curve or benchmark range rather than the underlying raw array, the repository stores the corresponding reconstruction explicitly in `data/`.
 
 ## Numerical model
 
@@ -62,4 +60,4 @@ The main benchmark uses:
 
 ## Citation
 
-Please cite the associated manuscript when using these materials. A persistent repository DOI should be added here after the GitHub repository is connected to Zenodo.
+Please cite the associated manuscript when using these materials. A persistent repository DOI should be added after the GitHub repository is connected to Zenodo.
