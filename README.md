@@ -8,7 +8,6 @@ This repository contains the JPhys G submission materials, figure-generation cod
 
 ## Contents
 
-- `paper.tex` — manuscript source (submission working copy).
 - `figs/` — manuscript figures and generated reproductions.
 - `scripts/` — deterministic figure-generation scripts.
 - `data/` — machine-readable benchmark/plot data.
