@@ -1,0 +1,4 @@
+from pathlib import Path
+import sys, numpy as np, matplotlib.pyplot as plt
+R=Path(__file__).resolve().parents[1]; sys.path.insert(0,str(R/'data')); from figure_data import *
+out=R/'figs/generated/figure3.png'; fig,ax=plt.subplots(1,3,figsize=(10,3.2)); ax[0].plot(imz,yukawa); ax[0].set(xlabel=r'Im$(z_{12})$',ylabel=r'$\|Y_\nu\|$',title='UV Yukawa norm'); ax[1].plot(imz,np.array(masses)[0]*np.ones_like(imz),label='$m_1$'); ax[1].plot(imz,np.array(masses)[1]*np.ones_like(imz),label='$m_2$'); ax[1].plot(imz,np.array(masses)[2]*np.ones_like(imz),label='$m_3$'); ax[1].set(xlabel=r'Im$(z_{12})$',ylabel='mass [eV]',title='Low-energy masses'); ax[1].legend(fontsize=7); ax[2].plot(imz,cpinv); ax[2].set(xlabel=r'Im$(z_{12})$',ylabel=r'Im$[(Y^\dagger Y)_{12}^2]$',title='High-scale CP invariant'); fig.suptitle('Physical Content of the Casas–Ibarra Freedom'); fig.tight_layout(); fig.savefig(out,dpi=220); plt.close(fig)
